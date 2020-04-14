@@ -17,7 +17,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <beam.version>2.17.0</beam.version>
+        <beam.version>2.19.0</beam.version>
         <beam-solaceio.version>0.6</beam-solaceio.version>
         <scio.version>0.8.0</scio.version>
         <protobuf.version>3.4.0</protobuf.version>
@@ -25,6 +25,7 @@
         <beam-sql.version>2.6.0</beam-sql.version>
         <google-cloud-storage.version>1.103.0</google-cloud-storage.version>
         <bigquery-client-api.version>1.53.0</bigquery-client-api.version>
+        <spark.version>2.4.4</spark.version>
     </properties>
 
     <profiles>
@@ -75,6 +76,57 @@
                     <scope>runtime</scope>
                 </dependency>
 
+                <dependency>
+                    <groupId>org.scala-lang.modules</groupId>
+                    <artifactId>scala-xml_${scala.major.minior.version}</artifactId>
+                    <version>1.2.0</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>com.fasterxml.jackson.module</groupId>
+                    <artifactId>jackson-module-scala_${scala.major.minior.version}</artifactId>
+                    <version>2.9.9</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.json4s</groupId>
+                    <artifactId>json4s-jackson_${scala.major.minior.version}</artifactId>
+                    <version>3.6.7</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>spark-core_${scala.major.minior.version}</artifactId>
+                    <version>${spark.version}</version>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>org.slf4j</groupId>
+                            <artifactId>slf4j-log4j12</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>spark-streaming_${scala.major.minior.version}</artifactId>
+                    <version>${spark.version}</version>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>org.slf4j</groupId>
+                            <artifactId>slf4j-log4j12</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>spark-sql_${scala.major.minior.version}</artifactId>
+                    <version>${spark.version}</version>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>org.slf4j</groupId>
+                            <artifactId>slf4j-log4j12</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
             </dependencies>
         </profile>
     </profiles>
@@ -143,5 +195,6 @@
             <artifactId>google-api-services-bigquery</artifactId>
             <version>v2-rev410-1.25.0</version>
         </dependency>
+
     </dependencies>
 </project>
