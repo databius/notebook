@@ -1,4 +1,4 @@
-package com.databius.notebook.scala
+package com.databius.notebook
 
 trait ParentA {
   val v: String

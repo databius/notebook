@@ -10,7 +10,7 @@
         </encoder>
     </appender>
     <logger name="utils" level="INFO"/>
-    <logger name="gng.box.beam" level="DEBUG"/>
+    <logger name="gng.box.beam" level="INFO"/>
     <logger name="org.apache.beam" level="INFO"/>
     <root level="INFO">
         <appender-ref ref="console"/>

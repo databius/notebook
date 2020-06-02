@@ -9,8 +9,7 @@
             <pattern>%cyan(%d{HH:mm:ss.SSS} [%thread_id %thread]) %highlight(%p %c{1}: %m%n)</pattern>
         </encoder>
     </appender>
-    <logger name="gng.box.beam" level="WARN"/>
-    <root level="INFO">
+    <root level="WARN">
         <appender-ref ref="console"/>
     </root>
 </configuration>

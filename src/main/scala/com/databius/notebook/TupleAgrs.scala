@@ -20,7 +20,7 @@ object TupleAgrs extends App {
   m.foreach { i =>
     {
       i match {
-        case (_:Int, _:String) => print(s"case 3: "); fn(_, _)
+        case (_: Int, _: String) => print(s"case 3: "); fn(_, _)
       }
     }
   }
