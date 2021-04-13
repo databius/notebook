@@ -25,14 +25,14 @@ object HelloCombine extends App {
 
   c.apply("Print", MapElements.via(new SimpleFunction[Int, Unit]() {
     override def apply(input: Int): Unit = {
-      LOG.info(s"$input")
+      LOG.error(s"c --> $input")
     }
   }))
 
   val d: PCollection[Int] = c.apply("Combine", Combine.globally(new SumFn))
   d.apply("Print", MapElements.via(new SimpleFunction[Int, Unit]() {
     override def apply(input: Int): Unit = {
-      LOG.info(s"$input")
+      LOG.error(s"d --> $input")
     }
   }))
 

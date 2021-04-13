@@ -17,15 +17,15 @@
     <packaging>pom</packaging>
 
     <properties>
-        <beam.version>2.19.0</beam.version>
+        <beam.version>2.22.0</beam.version>
         <beam-solaceio.version>0.6</beam-solaceio.version>
-        <scio.version>0.8.0</scio.version>
+        <scio.version>0.9.2</scio.version>
         <protobuf.version>3.4.0</protobuf.version>
         <bigquery.version>v2-rev374-1.23.0</bigquery.version>
         <beam-sql.version>2.6.0</beam-sql.version>
         <google-cloud-storage.version>1.103.0</google-cloud-storage.version>
         <bigquery-client-api.version>1.53.0</bigquery-client-api.version>
-        <spark.version>2.4.4</spark.version>
+        <spark.version>3.0.0</spark.version>
     </properties>
 
     <profiles>
@@ -75,6 +75,13 @@
                     <version>${beam.version}</version>
                     <scope>runtime</scope>
                 </dependency>
+                <!-- https://mvnrepository.com/artifact/org.apache.beam/beam-sdks-java-extensions-sorter -->
+                <dependency>
+                    <groupId>org.apache.beam</groupId>
+                    <artifactId>beam-sdks-java-extensions-sorter</artifactId>
+                    <version>${beam.version}</version>
+                </dependency>
+
 
                 <dependency>
                     <groupId>org.scala-lang.modules</groupId>
@@ -88,11 +95,11 @@
                     <version>2.9.9</version>
                 </dependency>
 
-                <dependency>
-                    <groupId>org.json4s</groupId>
-                    <artifactId>json4s-jackson_${scala.major.minior.version}</artifactId>
-                    <version>3.6.7</version>
-                </dependency>
+<!--                <dependency>-->
+<!--                    <groupId>org.json4s</groupId>-->
+<!--                    <artifactId>json4s-jackson_${scala.major.minior.version}</artifactId>-->
+<!--                    <version>3.6.7</version>-->
+<!--                </dependency>-->
 
                 <dependency>
                     <groupId>org.apache.spark</groupId>
@@ -196,5 +203,15 @@
             <version>v2-rev410-1.25.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.spotify</groupId>
+            <artifactId>scio-core_${scala.major.minior.version}</artifactId>
+            <version>${scio.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.spotify</groupId>
+            <artifactId>scio-bigquery_${scala.major.minior.version}</artifactId>
+            <version>${scio.version}</version>
+        </dependency>
     </dependencies>
 </project>

@@ -6,7 +6,7 @@
         <target>System.out</target>
         <withJansi>true</withJansi>
         <encoder>
-            <pattern>%cyan(%d{HH:mm:ss.SSS} [%thread_id %thread]) %highlight(%p %c{1}: %m%n)</pattern>
+            <pattern>%cyan(%d{HH:mm:ss.SSS} [%thread_id %8.8thread]) %highlight(%p %c{1}: %m%n)</pattern>
         </encoder>
     </appender>
     <root level="WARN">

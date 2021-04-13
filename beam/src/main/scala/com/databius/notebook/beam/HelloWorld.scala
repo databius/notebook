@@ -17,7 +17,7 @@ object HelloWorld extends App {
     .as(classOf[WordCountOptions])
 
   val pipeline: Pipeline = Pipeline.create(options)
-  val l: util.List[Int] = List.range(0, 16).asJava
+  val l: util.List[Int] = List.range(0, 10000000).asJava
   val c = pipeline
     .apply("Create from List", Create.of(l))
     .apply("increase", ParDo.of(new Increase))
@@ -45,11 +45,11 @@ class Double extends DoFn[Int, Int] {
   }
 }
 
-class Print extends DoFn[Int, Unit] {
+class Log[T] extends DoFn[T, Unit] {
   private val LOG: Logger = LoggerFactory.getLogger(this.getClass)
   @ProcessElement
   def processElement(c: ProcessContext): Unit = {
-    LOG.info(Thread.currentThread().getId + " -> " + c.element())
+    LOG.error(Thread.currentThread().getId + " -------> " + c.element())
   }
 }
 

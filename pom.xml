@@ -11,6 +11,8 @@
         <module>beam</module>
         <module>spark</module>
         <module>solace</module>
+        <module>scalaz</module>
+        <module>scala</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -22,7 +24,7 @@
         <maven-shade-plugin.version>3.1.0</maven-shade-plugin.version>
         <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
         <scala.major.minior.version>2.12</scala.major.minior.version>
-        <scala-library.version>${scala.major.minior.version}.7</scala-library.version>
+        <scala-library.version>${scala.major.minior.version}.11</scala-library.version>
         <scalatest-version>3.0.5</scalatest-version>
         <junit.version>4.12</junit.version>
         <mockito.version>1.9.5</mockito.version>
