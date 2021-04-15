@@ -1,36 +1,18 @@
-package com.databius.notebook.scala
+package com.databius.notebook.pcap
 
-import io.pkts.PacketHandler
-import io.pkts.Pcap
 import io.pkts.buffer.Buffer
-import io.pkts.framer.FramingException
 import io.pkts.packet.Packet
 import io.pkts.protocol.Protocol
-import quickfix.{DataDictionary, Field, FieldMap, Group, Message}
-import quickfix.field._
+import io.pkts.{PacketHandler, Pcap}
+import quickfix.field.MsgType
+import quickfix.{DataDictionary, FieldMap, Message}
 
-import java.io.{BufferedInputStream, ByteArrayOutputStream}
-import java.nio.charset.StandardCharsets
-import org.json4s.Xml.{toJson, toXml}
-import org.json4s.jackson.JsonMethods.{pretty, render}
-import org.json4s.jackson.Serialization
-import org.json4s.jackson.Serialization.write
-import org.w3c.dom.{CDATASection, Document, Element}
-
-import java.util
-import java.util.{Iterator, List}
-import javax.xml.XMLConstants
-import javax.xml.parsers.DocumentBuilderFactory
-import javax.xml.transform.{OutputKeys, Transformer, TransformerFactory}
-import javax.xml.transform.dom.DOMSource
-import javax.xml.transform.stream.StreamResult
-import scala.xml.XML
-
+import java.util.List
 import scala.jdk.CollectionConverters._
 
 object PktsExample extends App {
   implicit val formats = org.json4s.DefaultFormats
-  val pcap = Pcap.openStream("./data/bursa-fish.tcp")
+  val pcap = Pcap.openStream("src/main/resources/echoAndEchoReply.pcap")
   pcap.loop(new PacketHandler() {
     override def nextPacket(packet: Packet): Boolean = {
       // Step 3 - For every new packet the PacketHandler will be
@@ -56,8 +38,6 @@ object PktsExample extends App {
           //          import quickfix.Message
           //          import quickfix.field.MsgType
           //          val msgType = Message.identifyType(fixMsg)
-
-          import quickfix.InvalidMessage
 
           //          val index = fixMsg.indexOf(FIELD_SEPARATOR)
           //          if (index < 0) throw new InvalidMessage("Message does not contain any field separator")
