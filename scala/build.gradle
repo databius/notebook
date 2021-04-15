@@ -4,9 +4,23 @@ plugins {
     id "idea"
 }
 
+def scalaMajorVersion = "2.13"
+def scalaVersion = "$scalaMajorVersion.5"
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation("org.scala-lang:scala-library:$scalaVersion")
+    implementation("org.scala-lang:scala-compiler:$scalaVersion")
+    implementation("ch.qos.logback:logback-classic:1.1.3")
+    implementation("org.json4s:json4s-jackson_$scalaMajorVersion:3.6.7")
+    implementation("org.json4s:json4s-xml_$scalaMajorVersion:3.6.10")
+
+    implementation("io.pkts:pkts-core:3.0.7")
+    implementation("org.quickfixj:quickfixj-core:2.2.0")
+
+    testImplementation("org.scalatest:scalatest_$scalaMajorVersion:3.2.2")
+    testImplementation("org.scalatestplus:scalacheck-1-14_$scalaMajorVersion:3.2.2.0")
 }

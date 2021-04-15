@@ -1,9 +1,9 @@
-package com.databius.notebook.regex
+package com.databius.notebook.scala.regex
 
-import org.scalatest.FunSpec
-import Regex._
+import com.databius.notebook.regex.Regex._
+import org.scalatest.funspec.AnyFunSpec
 
-class RegexTest extends FunSpec {
+class RegexTest extends AnyFunSpec {
   describe("Regex") {
     it("animals/domestic/*") {
       assert(matchWildcard("animals/domestic/*", "animals/domestic/cats"))
@@ -16,7 +16,7 @@ class RegexTest extends FunSpec {
       assert(matchWildcard("animals/*/cats/*", "animals/wild/cats/leopard"))
       assert(
         !matchWildcard("animals/*/cats/*",
-                       "animals/domestic/cats/persian/grey"))
+          "animals/domestic/cats/persian/grey"))
       assert(
         !matchWildcard("animals/*/cats/*", "animals/domestic/dogs/beagles"))
     }
