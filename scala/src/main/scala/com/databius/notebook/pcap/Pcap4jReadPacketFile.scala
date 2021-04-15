@@ -13,8 +13,7 @@ import org.pcap4j.packet.Packet
 object Pcap4jReadPacketFile {
   private val COUNT = 5
   private val PCAP_FILE_KEY = classOf[Pcap4jReadPacketFile].getName + ".pcapFile"
-//  private val PCAP_FILE = System.getProperty(PCAP_FILE_KEY, "src/main/resources/echoAndEchoReply.pcap")
-  private val PCAP_FILE = System.getProperty(PCAP_FILE_KEY, "data/bursa-ens4f0-all-20210414‐131800.pcap")
+  private val PCAP_FILE = System.getProperty(PCAP_FILE_KEY, "src/main/resources/echoAndEchoReply.pcap")
 
   @throws[PcapNativeException]
   @throws[NotOpenException]

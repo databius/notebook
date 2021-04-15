@@ -17,8 +17,7 @@ import scala.jdk.CollectionConverters._
 
 object Pcap4jDefragmentEcho {
   private val PCAP_FILE_KEY: String = classOf[Pcap4jDefragmentEcho].getName + ".pcapFile"
-//  private val PCAP_FILE: String = System.getProperty(PCAP_FILE_KEY, "src/main/resources/flagmentedEcho.pcap")
-  private val PCAP_FILE = System.getProperty(PCAP_FILE_KEY, "data/bursa-ens4f0-all-20210414‐131800.pcap")
+  private val PCAP_FILE: String = System.getProperty(PCAP_FILE_KEY, "src/main/resources/flagmentedEcho.pcap")
 
   @throws[PcapNativeException]
   @throws[NotOpenException]
