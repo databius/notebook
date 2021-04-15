@@ -1,0 +1,33 @@
+plugins {
+    id "java"
+    id "scala"
+    id "dev.jacomet.logging-capabilities" version "0.9.0"
+    id "com.diffplug.gradle.spotless" version "3.28.1"
+    id "idea"
+}
+
+def scalaMajorVersion = "2.13"
+def scioVersionStrict = "0.9.2!!"
+def beamVersionStrict = "2.22.0!!"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("com.spotify:scio-core_$scalaMajorVersion:$scioVersionStrict")
+    implementation("com.spotify:scio-bigquery_$scalaMajorVersion:$scioVersionStrict")
+    implementation("org.apache.beam:beam-sdks-java-core:$beamVersionStrict")
+    implementation("org.apache.beam:beam-sdks-java-io-google-cloud-platform:$beamVersionStrict")
+    implementation("org.apache.beam:beam-sdks-java-extensions-google-cloud-platform-core:$beamVersionStrict")
+    runtimeOnly("org.apache.beam:beam-runners-direct-java:$beamVersionStrict")
+    runtimeOnly("org.apache.beam:beam-runners-google-cloud-dataflow-java:$beamVersionStrict")
+    testImplementation("org.apache.beam:beam-runners-google-cloud-dataflow-java:$beamVersionStrict")
+    implementation("com.google.cloud:google-cloud-storage:1.103.0")
+    implementation("com.google.cloud:google-cloud-bigquery:1.116.0")
+    compile("com.google.cloud:google-cloud-pubsub:1.103.0")
+
+    implementation("com.lihaoyi:fastparse_$scalaMajorVersion:2.3.1")
+    implementation("org.json4s:json4s-jackson_$scalaMajorVersion:3.6.7")
+    implementation("ch.qos.logback:logback-classic:1.1.3")
+}

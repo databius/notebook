@@ -17,7 +17,7 @@ object HelloWorld extends App {
     .as(classOf[WordCountOptions])
 
   val pipeline: Pipeline = Pipeline.create(options)
-  val l: util.List[Int] = List.range(0, 10000000).asJava
+  val l: util.List[Int] = List.range(0, 1024).asJava
   val c = pipeline
     .apply("Create from List", Create.of(l))
     .apply("increase", ParDo.of(new Increase))

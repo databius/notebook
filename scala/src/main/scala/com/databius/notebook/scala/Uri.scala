@@ -1,4 +1,4 @@
-package com.databius.notebook
+package com.databius.notebook.scala
 
 import java.net.URI
 

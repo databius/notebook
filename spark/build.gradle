@@ -1,0 +1,27 @@
+plugins {
+    id "java"
+    id "scala"
+    id "idea"
+}
+
+def scalaMajorVersion = "2.12"
+def scalaVersion = "$scalaMajorVersion.10"
+def sparkVersion = "3.1.1"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.scala-lang:scala-library:$scalaVersion")
+    implementation("ch.qos.logback:logback-classic:1.1.3")
+
+    implementation("org.apache.spark:spark-core_$scalaMajorVersion:$sparkVersion"){
+        exclude group: "org.slf4j", module: "jcl-over-slf4j"
+    }
+    implementation("org.apache.spark:spark-streaming_$scalaMajorVersion:$sparkVersion")
+    implementation("org.apache.spark:spark-sql_$scalaMajorVersion:$sparkVersion")
+    implementation("org.apache.spark:spark-mllib_$scalaMajorVersion:$sparkVersion")
+    implementation("com.google.cloud.spark:spark-bigquery-with-dependencies_$scalaMajorVersion:0.17.2")
+    implementation("com.google.cloud.bigdataoss:gcs-connector:hadoop3-2.1.5")
+}

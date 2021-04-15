@@ -1,0 +1,19 @@
+plugins {
+    id "java"
+    id "scala"
+    id "idea"
+}
+
+def scalaMajorVersion = "2.12"
+def scalaVersion = "$scalaMajorVersion.10"
+def sparkVersion = "3.1.1"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.scalaz:scalaz-core_$scalaMajorVersion:7.2.27!!")
+    implementation("dev.zio:zio_$scalaMajorVersion:1.0.0-RC17!!")
+    implementation("dev.zio:zio-streams_$scalaMajorVersion:1.0.0-RC17!!")
+}
